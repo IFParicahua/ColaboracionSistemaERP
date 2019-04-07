@@ -1,0 +1,2155 @@
+{
+  "ReportVersion": "2018.3.5.0",
+  "ReportGuid": "94aeace20fb4d33f5223ede7ae119ccf",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportCreated": "/Date(1543440509000+0000)/",
+  "ReportChanged": "/Date(1543440509000+0000)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Controls;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Dialogs;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace Reports\r\n{\r\n    public class Report : Stimulsoft.Report.StiReport\r\n    {\r\n        public Report()        {\r\n            this.InitializeComponent();\r\n        }\r\n\r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}\r\n",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Controls.Dll",
+    "6": "Stimulsoft.Base.Dll",
+    "7": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "NaN",
+        "Name": "usuario",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "usuario",
+        "Type": "System.Int16"
+      },
+      "1": {
+        "Value": "NaN",
+        "Name": "emp",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "emp",
+        "Type": "System.Int16"
+      },
+      "2": {
+        "Value": "NaN",
+        "Name": "ges",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "ges",
+        "Type": "System.Int16"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiMySqlSource",
+        "Name": "articulos",
+        "Alias": "articulos",
+        "Columns": {
+          "0": {
+            "Name": "Cantidad",
+            "Index": -1,
+            "NameInSource": "Cantidad",
+            "Alias": "Cantidad",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "CostoInventario",
+            "Index": -1,
+            "NameInSource": "CostoInventario",
+            "Alias": "CostoInventario",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "CostoOrden",
+            "Index": -1,
+            "NameInSource": "CostoOrden",
+            "Alias": "CostoOrden",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Demanda",
+            "Index": -1,
+            "NameInSource": "Demanda",
+            "Alias": "Demanda",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "Descripcion",
+            "Index": -1,
+            "NameInSource": "Descripcion",
+            "Alias": "Descripcion",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "PkCategoria",
+            "Index": -1,
+            "NameInSource": "PkCategoria",
+            "Alias": "PkCategoria",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "PrecioVenta",
+            "Index": -1,
+            "NameInSource": "PrecioVenta",
+            "Alias": "PrecioVenta",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "PuntoNuevoPedido",
+            "Index": -1,
+            "NameInSource": "PuntoNuevoPedido",
+            "Alias": "PuntoNuevoPedido",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "TiempoEspera",
+            "Index": -1,
+            "NameInSource": "TiempoEspera",
+            "Alias": "TiempoEspera",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "12": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "13": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "14": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from articulos"
+      },
+      "1": {
+        "Ident": "StiMySqlSource",
+        "Name": "categorias",
+        "Alias": "categorias",
+        "Columns": {
+          "0": {
+            "Name": "CategoriaPadre_id",
+            "Index": -1,
+            "NameInSource": "CategoriaPadre_id",
+            "Alias": "CategoriaPadre_id",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "Descripcion",
+            "Index": -1,
+            "NameInSource": "Descripcion",
+            "Alias": "Descripcion",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from categorias"
+      },
+      "2": {
+        "Ident": "StiMySqlSource",
+        "Name": "comprobantes",
+        "Alias": "comprobantes",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "suma",
+            "Index": -1,
+            "NameInSource": "suma",
+            "Alias": "suma",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre,detallecomprobante.MontoDebe,detallecomprobante.MontoHaber, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social,SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '1.1%')\r\nGROUP by cuenta.Codigo"
+      },
+      "3": {
+        "Ident": "StiMySqlSource",
+        "Name": "conceptos",
+        "Alias": "conceptos",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_activo_no_corriente",
+            "Index": -1,
+            "NameInSource": "suma_activo_no_corriente",
+            "Alias": "suma_activo_no_corriente",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "\r\nSELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,\r\ngestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) \r\nas suma_activo_no_corriente\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '1.2%') GROUP by (cuenta.Codigo  LIKE '1.2%')\r\n"
+      },
+      "4": {
+        "Ident": "StiMySqlSource",
+        "Name": "detallecomprobantes",
+        "Alias": "detallecomprobantes",
+        "Columns": {
+          "0": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "codigo1",
+            "Index": -1,
+            "NameInSource": "codigo1",
+            "Alias": "codigo1",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "nombre1",
+            "Index": -1,
+            "NameInSource": "nombre1",
+            "Alias": "nombre1",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "suma",
+            "Index": -1,
+            "NameInSource": "suma",
+            "Alias": "suma",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo as codigo1,cuenta.Nombre as nombre1,detallecomprobante.MontoDebe,detallecomprobante.MontoHaber, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social,SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '1.2%')\r\nGROUP by cuenta.Codigo"
+      },
+      "5": {
+        "Ident": "StiMySqlSource",
+        "Name": "empresamonedas",
+        "Alias": "empresamonedas",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_pasivo_patrimonio",
+            "Index": -1,
+            "NameInSource": "suma_pasivo_patrimonio",
+            "Alias": "suma_pasivo_patrimonio",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma_pasivo_patrimonio\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '2%' or cuenta.Codigo LIKE '3%') GROUP BY (cuenta.Codigo LIKE '2%' or cuenta.Codigo LIKE '3%')\r\n\r\n"
+      },
+      "6": {
+        "Ident": "StiMySqlSource",
+        "Name": "empresas",
+        "Alias": "empresas",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "suma",
+            "Index": -1,
+            "NameInSource": "suma",
+            "Alias": "suma",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT (SUM(detallecomprobante.MontoDebe + detallecomprobante.MontoHaber)) as suma, cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre,detallecomprobante.MontoDebe,detallecomprobante.MontoHaber, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' \r\nor cuenta.Nivel !=3) and (cuenta.Codigo LIKE '1%'  or cuenta.Codigo LIKE '2%'  or cuenta.Codigo LIKE '3%') GROUP BY (cuenta.Codigo LIKE '1.1%') \r\nORDER by cuenta.Codigo "
+      },
+      "7": {
+        "Ident": "StiMySqlSource",
+        "Name": "gestiones",
+        "Alias": "gestiones",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_capital",
+            "Index": -1,
+            "NameInSource": "suma_capital",
+            "Alias": "suma_capital",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma_capital\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges} \r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '3.1%') GROUP by (cuenta.Codigo  LIKE '3.1%') \r\n"
+      },
+      "8": {
+        "Ident": "StiMySqlSource",
+        "Name": "lotes",
+        "Alias": "lotes",
+        "Columns": {
+          "0": {
+            "Name": "Cantidad",
+            "Index": -1,
+            "NameInSource": "Cantidad",
+            "Alias": "Cantidad",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "FechaIngreso",
+            "Index": -1,
+            "NameInSource": "FechaIngreso",
+            "Alias": "FechaIngreso",
+            "Type": "System.DateTime"
+          },
+          "2": {
+            "Name": "FechaVencimiento",
+            "Index": -1,
+            "NameInSource": "FechaVencimiento",
+            "Alias": "FechaVencimiento",
+            "Type": "System.DateTime"
+          },
+          "3": {
+            "Name": "NroLote",
+            "Index": -1,
+            "NameInSource": "NroLote",
+            "Alias": "NroLote",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "PkArticulo",
+            "Index": -1,
+            "NameInSource": "PkArticulo",
+            "Alias": "PkArticulo",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "PkNota",
+            "Index": -1,
+            "NameInSource": "PkNota",
+            "Alias": "PkNota",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "PrecioCompra",
+            "Index": -1,
+            "NameInSource": "PrecioCompra",
+            "Alias": "PrecioCompra",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "Stock",
+            "Index": -1,
+            "NameInSource": "Stock",
+            "Alias": "Stock",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "11": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from lotes"
+      },
+      "9": {
+        "Ident": "StiMySqlSource",
+        "Name": "monedas",
+        "Alias": "monedas",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_pasivo_corriente",
+            "Index": -1,
+            "NameInSource": "suma_pasivo_corriente",
+            "Alias": "suma_pasivo_corriente",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "\r\nSELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma_pasivo_corriente\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges}\r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '2.1%') GROUP by (cuenta.Codigo  LIKE '2.1%')\r\n\r\n"
+      },
+      "10": {
+        "Ident": "StiMySqlSource",
+        "Name": "notas",
+        "Alias": "notas",
+        "Columns": {
+          "0": {
+            "Name": "Detalle",
+            "Index": -1,
+            "NameInSource": "Detalle",
+            "Alias": "Detalle",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "Estado",
+            "Index": -1,
+            "NameInSource": "Estado",
+            "Alias": "Estado",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Fecha",
+            "Index": -1,
+            "NameInSource": "Fecha",
+            "Alias": "Fecha",
+            "Type": "System.DateTime"
+          },
+          "3": {
+            "Name": "NroNota",
+            "Index": -1,
+            "NameInSource": "NroNota",
+            "Alias": "NroNota",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "PkComprobante",
+            "Index": -1,
+            "NameInSource": "PkComprobante",
+            "Alias": "PkComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "Tipo",
+            "Index": -1,
+            "NameInSource": "Tipo",
+            "Alias": "Tipo",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "Total",
+            "Index": -1,
+            "NameInSource": "Total",
+            "Alias": "Total",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "10": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from notas"
+      },
+      "11": {
+        "Ident": "StiMySqlSource",
+        "Name": "periodos",
+        "Alias": "periodos",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_activo",
+            "Index": -1,
+            "NameInSource": "suma_activo",
+            "Alias": "suma_activo",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma_activo\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges}\r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '1%') GROUP by (cuenta.Codigo  LIKE '1%')\r\n"
+      },
+      "12": {
+        "Ident": "StiMySqlSource",
+        "Name": "plancuentas",
+        "Alias": "plancuentas",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.Codigo,cuenta.Nombre,cuenta.CuentaPadre\r\nfrom cuenta LEFT JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta \r\n\r\nWHERE cuenta.PkEmpresa={emp}\r\n"
+      },
+      "13": {
+        "Ident": "StiMySqlSource",
+        "Name": "users",
+        "Alias": "users",
+        "Columns": {
+          "0": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.DateTime"
+          },
+          "1": {
+            "Name": "email",
+            "Index": -1,
+            "NameInSource": "email",
+            "Alias": "email",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "name",
+            "Index": -1,
+            "NameInSource": "name",
+            "Alias": "name",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "password",
+            "Index": -1,
+            "NameInSource": "password",
+            "Alias": "password",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "remember_token",
+            "Index": -1,
+            "NameInSource": "remember_token",
+            "Alias": "remember_token",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.DateTime"
+          },
+          "7": {
+            "Name": "username",
+            "Index": -1,
+            "NameInSource": "username",
+            "Alias": "username",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from users where id={usuario}"
+      },
+      "14": {
+        "Ident": "StiMySqlSource",
+        "Name": "comprobantes2",
+        "Alias": "comprobantes2",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "suma_activo_corriente",
+            "Index": -1,
+            "NameInSource": "suma_activo_corriente",
+            "Alias": "suma_activo_corriente",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión2",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo,cuenta.Nombre, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social, SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma_activo_corriente\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges}\r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '1.1%') GROUP by (cuenta.Codigo  LIKE '1.1%')\r\n"
+      },
+      "15": {
+        "Ident": "StiMySqlSource",
+        "Name": "gestiones2",
+        "Alias": "gestiones2",
+        "Columns": {
+          "0": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "codigo2",
+            "Index": -1,
+            "NameInSource": "codigo2",
+            "Alias": "codigo2",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "nombre2",
+            "Index": -1,
+            "NameInSource": "nombre2",
+            "Alias": "nombre2",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "suma",
+            "Index": -1,
+            "NameInSource": "suma",
+            "Alias": "suma",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión2",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo as codigo2,cuenta.Nombre as nombre2,detallecomprobante.MontoDebe,detallecomprobante.MontoHaber, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social,SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges}\r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '2.1%')\r\nGROUP by cuenta.Codigo"
+      },
+      "16": {
+        "Ident": "StiMySqlSource",
+        "Name": "periodos2",
+        "Alias": "periodos2",
+        "Columns": {
+          "0": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "codigo3",
+            "Index": -1,
+            "NameInSource": "codigo3",
+            "Alias": "codigo3",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "nombre3",
+            "Index": -1,
+            "NameInSource": "nombre3",
+            "Alias": "nombre3",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "suma",
+            "Index": -1,
+            "NameInSource": "suma",
+            "Alias": "suma",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión2",
+        "SqlCommand": "SELECT cuenta.id_cuenta, cuenta.CuentaPadre,cuenta.Codigo as codigo3,cuenta.Nombre as nombre3,detallecomprobante.MontoDebe,detallecomprobante.MontoHaber, comprobante.TipoComprobante,gestion.Nombre as gestion_nombre, empresa.Razon_social,SUM(detallecomprobante.MontoDebe - detallecomprobante.MontoHaber) as suma\r\nfrom cuenta \r\nLEFT OUTER JOIN detallecomprobante on cuenta.id_cuenta=detallecomprobante.PkCuenta\r\nLEFT OUTER JOIN  comprobante on comprobante.id_comprobante=detallecomprobante.PkComprobante\r\nINNER JOIN empresa on empresa.id=cuenta.PkEmpresa\r\nINNER JOIN gestion on gestion.PkEmpresa=empresa.id\r\nwhere \r\nempresa.id={emp} \r\nand gestion.id={ges}\r\nand (comprobante.TipoComprobante='Apertura' or comprobante.TipoComprobante='Ingreso' or comprobante.TipoComprobante='Egreso'or comprobante.TipoComprobante='Traspaso' or comprobante.TipoComprobante='Ajuste')\r\nand (cuenta.Codigo LIKE '3.1%')\r\nGROUP by cuenta.Codigo"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiMySqlDatabase",
+        "Name": "Conexión",
+        "Alias": "Conexión",
+        "ConnectionStringEncrypted": "41zNa8ZKMd1sE9XAYpykP4twm6jGS6OkyxX9+Ok9pHvfIGmvTUrzieJL+czDBDtPi3D1iUhU+w=="
+      },
+      "1": {
+        "Ident": "StiMySqlDatabase",
+        "Name": "Conexión2",
+        "Alias": "Conexión2",
+        "ConnectionStringEncrypted": "41zNa8ZKMd1sE9XAYpykP4twm6jGS6OkyxX9+Ok9pHvfIGmvTUrzieJL+czDBDtPi3D1iUhU+w=="
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "dfdad831a1c530fc36e865354c7941e8",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiPageFooterBand",
+          "Name": "PageFooterBand1",
+          "ClientRectangle": "0,32.44,19,0.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16,0.16,3,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{PageNofM}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,2.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,19,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "REPORTE BALANCE GENERAL"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0.6,19,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "EMPRESA: {comprobantes.Razon_social}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,1.2,19,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "GESTION: {comprobantes.gestion_nombre}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": ";11;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "15.4,1.8,1.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "FECHA: "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";6;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "15.4,2.2,1.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "USUARIO: "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";6;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "17,1.8,2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Today}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";6;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "TextFormat": {
+                "Ident": "StiDateFormatService"
+              },
+              "Type": "SystemVariables"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "17,2.2,2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{users.name}"
+              },
+              "VertAlignment": "Center",
+              "Font": ";6;Italic;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand1",
+          "ClientRectangle": "0,3.8,19,1.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,2.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "1.0.0 - Activo:"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0.4,0.6,4.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "1.1.0 - Activo Corriente :"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text21",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "12,0.6,2.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{comprobantes2.suma_activo_corriente}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text22",
+              "Guid": "06cee0a34d625d60313fd04e132b473d",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{periodos.suma_activo}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          }
+        },
+        "3": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand1",
+          "ClientRectangle": "0,5.8,19,0",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{comprobantes.codigo} - {comprobantes.nombre}"
+          }
+        },
+        "4": {
+          "Ident": "StiDataBand",
+          "Name": "Datacomprobantes",
+          "ClientRectangle": "0,6.6,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Datacomprobantes_codigo",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "1,0,8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {comprobantes.codigo} - {comprobantes.nombre}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Datacomprobantes_suma",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "9.2,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{comprobantes.suma}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            }
+          },
+          "DataSourceName": "comprobantes"
+        },
+        "5": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand1",
+          "ClientRectangle": "0,8.2,19,0.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
+        },
+        "6": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand2",
+          "Guid": "21cbe3e63793acb5511ef40aa0198f7d",
+          "ClientRectangle": "0,9.2,19,0.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "fc5c6e1340d178e55dd86c91affbf1c2",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0.4,0,4.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "1.2.0 - Activo no Corriente :"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text23",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "6.8,0,6.4,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{conceptos.suma_activo_no_corriente}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          }
+        },
+        "7": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand2",
+          "Guid": "3dd955c6da482d4b3ad6205748cb1f45",
+          "ClientRectangle": "0,10.6,19,0",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{detallecomprobantes.codigo1} - {detallecomprobantes.nombre1}"
+          }
+        },
+        "8": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand1",
+          "Guid": "050431581275cce2b531f92d7e56d734",
+          "ClientRectangle": "0,11.4,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "419b27360dd2ae1dd63462ab22898d64",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "1,0,8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {detallecomprobantes.codigo1} - {detallecomprobantes.nombre1}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "Guid": "dc72d9bee0645d2ae32ff9ba2e537fb4",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "9.2,0,9.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{detallecomprobantes.suma}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "comprobantes"
+        },
+        "9": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand2",
+          "Guid": "bfdd8cf01fd47f4e73667db3b6b70564",
+          "ClientRectangle": "0,13,19,0.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
+        },
+        "10": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand3",
+          "Guid": "fb4b2abb27c7273ec3bf43a504b41d72",
+          "ClientRectangle": "0,14,19,1.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "1e51504f14db85f721355d0800b696b3",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,2.8,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "2.0.0 - Pasivo y 3.0.0 - Patrimonio"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text15",
+              "Guid": "1269a09225a25ce0e24dba3b8af2da38",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0.4,0.6,4.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "2.1.0 - Pasivo Corriente :"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text24",
+              "Guid": "bf008f4e1482afd92377919d90c597a5",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "12,0.6,2.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{monedas.suma_pasivo_corriente}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text25",
+              "Guid": "788c41c001ca80dbfc9494d38ea2ed4a",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{empresamonedas.suma_pasivo_patrimonio}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            }
+          }
+        },
+        "11": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand3",
+          "Guid": "22dcb11d04816635b5b554c73156eb34",
+          "ClientRectangle": "0,16,19,0",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{gestiones.codigo} - {gestiones.nombre}"
+          }
+        },
+        "12": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand2",
+          "Guid": "086cc64aeb5fa5c7213f89b20639a820",
+          "ClientRectangle": "0,16.8,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text16",
+              "Guid": "fb3a52e40a625fefc355ec6dba20cf7d",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "1,0,8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {gestiones.codigo} - {gestiones.nombre} "
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text17",
+              "Guid": "fc0aa9391fb4948016f209764793f059",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "9.2,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{gestiones2.suma}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "DataColumn"
+            }
+          },
+          "DataSourceName": "comprobantes"
+        },
+        "13": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand3",
+          "Guid": "8c966a4e9e03efaf6ed6710ca637c80c",
+          "ClientRectangle": "0,18.4,19,0.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
+        },
+        "14": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand4",
+          "Guid": "72d137f84d0a8da8e0d8fd598a414fed",
+          "ClientRectangle": "0,19.4,19,0.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text18",
+              "Guid": "dfba18bc192cdbb514d1bc11567b97a2",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0.4,0,4.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "3.1.0 - Patrimonio y Capital :"
+              },
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text26",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "12,0,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{gestiones.suma_capital}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "DataColumn"
+            }
+          }
+        },
+        "15": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand4",
+          "Guid": "54f04d99ac21f4e451ac0c8aec539ab0",
+          "ClientRectangle": "0,20.8,19,0",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{periodos2.codigo3} - {periodos2.nombre3}"
+          }
+        },
+        "16": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand3",
+          "Guid": "c921235aaddab0e12c72e9095805d9b6",
+          "ClientRectangle": "0,21.6,19,0.8",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text19",
+              "Guid": "2e474ce4cdddf53d054a1c1e042eccca",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "1,0,8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {periodos2.codigo3} - {periodos2.nombre3}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text20",
+              "Guid": "03a3f02c557ae144f1f7dd708fdafd3c",
+              "CanGrow": true,
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "9.2,0,2.8,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{periodos2.suma}"
+              },
+              "VertAlignment": "Center",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "comprobantes"
+        },
+        "17": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand4",
+          "Guid": "9d565eb57a25a58e6b140dad27325740",
+          "ClientRectangle": "0,23.2,19,0.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
+        }
+      },
+      "PageWidth": 21.0,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    }
+  }
+}

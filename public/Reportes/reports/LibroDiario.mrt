@@ -1,0 +1,1377 @@
+{
+  "ReportVersion": "2018.3.5.0",
+  "ReportGuid": "2b7c1849e4ac9b71335422743e79ebb5",
+  "ReportName": "Report",
+  "ReportAlias": "Report",
+  "ReportCreated": "/Date(1542801975000+0000)/",
+  "ReportChanged": "/Date(1542801975000+0000)/",
+  "EngineVersion": "EngineV2",
+  "CalculationMode": "Interpretation",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Controls;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Dialogs;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace Reports\r\n{\r\n    public class Report : Stimulsoft.Report.StiReport\r\n    {\r\n        public Report()        {\r\n            this.InitializeComponent();\r\n        }\r\n\r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}\r\n",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Controls.Dll",
+    "6": "Stimulsoft.Base.Dll",
+    "7": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "NaN",
+        "Name": "per",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "Variable",
+        "Type": "System.Int16"
+      },
+      "1": {
+        "Value": "NaN",
+        "Name": "usuario",
+        "DialogInfo": {
+          "DateTimeType": "DateAndTime"
+        },
+        "Alias": "Variable",
+        "Type": "System.Int16"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiMySqlSource",
+        "Name": "comprobante",
+        "Alias": "comprobante",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "Estado",
+            "Index": -1,
+            "NameInSource": "Estado",
+            "Alias": "Estado",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Fecha",
+            "Index": -1,
+            "NameInSource": "Fecha",
+            "Alias": "Fecha",
+            "Type": "System.DateTime"
+          },
+          "3": {
+            "Name": "Glosa",
+            "Index": -1,
+            "NameInSource": "Glosa",
+            "Alias": "Glosa",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "PkComprobante",
+            "Index": -1,
+            "NameInSource": "PkComprobante",
+            "Alias": "PkComprobante",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "PkMoneda",
+            "Index": -1,
+            "NameInSource": "PkMoneda",
+            "Alias": "PkMoneda",
+            "Type": "System.Decimal"
+          },
+          "10": {
+            "Name": "PkPeriodo",
+            "Index": -1,
+            "NameInSource": "PkPeriodo",
+            "Alias": "PkPeriodo",
+            "Type": "System.Decimal"
+          },
+          "11": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "12": {
+            "Name": "Serie",
+            "Index": -1,
+            "NameInSource": "Serie",
+            "Alias": "Serie",
+            "Type": "System.Decimal"
+          },
+          "13": {
+            "Name": "TC",
+            "Index": -1,
+            "NameInSource": "TC",
+            "Alias": "TC",
+            "Type": "System.Decimal"
+          },
+          "14": {
+            "Name": "TipoComprobante",
+            "Index": -1,
+            "NameInSource": "TipoComprobante",
+            "Alias": "TipoComprobante",
+            "Type": "System.String"
+          },
+          "15": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "16": {
+            "Name": "deta",
+            "Index": -1,
+            "NameInSource": "deta",
+            "Alias": "deta",
+            "Type": "System.Decimal"
+          },
+          "17": {
+            "Name": "gestion_nombre",
+            "Index": -1,
+            "NameInSource": "gestion_nombre",
+            "Alias": "gestion_nombre",
+            "Type": "System.String"
+          },
+          "18": {
+            "Name": "id_comprobante",
+            "Index": -1,
+            "NameInSource": "id_comprobante",
+            "Alias": "id_comprobante",
+            "Type": "System.Decimal"
+          },
+          "19": {
+            "Name": "idcuenta",
+            "Index": -1,
+            "NameInSource": "idcuenta",
+            "Alias": "idcuenta",
+            "Type": "System.Decimal"
+          },
+          "20": {
+            "Name": "nombre_periodo",
+            "Index": -1,
+            "NameInSource": "nombre_periodo",
+            "Alias": "nombre_periodo",
+            "Type": "System.String"
+          },
+          "21": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "22": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select c.*, d.id as deta, periodo.Nombre AS nombre_periodo, gestion.Nombre as gestion_nombre, empresa.Razon_social, cu.id_cuenta as idcuenta, d.MontoHaber, d.MontoDebe, d.PkComprobante,cu.Codigo, cu.Nombre\r\nfrom \r\ncomprobante c INNER JOIN detallecomprobante d on c.id_comprobante= d.PkComprobante\r\nINNER JOIN cuenta cu on d.PkCuenta=cu.id_cuenta \r\nINNER JOIN periodo on c.PkPeriodo=periodo.id\r\nINNER JOIN gestion on gestion.id=periodo.PkGestion\r\nINNER JOIN empresa on empresa.id=gestion.PkEmpresa\r\nWHERE c.PkPeriodo = {per}"
+      },
+      "1": {
+        "Ident": "StiMySqlSource",
+        "Name": "cuenta",
+        "Alias": "cuenta",
+        "Columns": {
+          "0": {
+            "Name": "Codigo",
+            "Index": -1,
+            "NameInSource": "Codigo",
+            "Alias": "Codigo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "CuentaPadre",
+            "Index": -1,
+            "NameInSource": "CuentaPadre",
+            "Alias": "CuentaPadre",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "Nivel",
+            "Index": -1,
+            "NameInSource": "Nivel",
+            "Alias": "Nivel",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "TipoCuenta",
+            "Index": -1,
+            "NameInSource": "TipoCuenta",
+            "Alias": "TipoCuenta",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "idUser",
+            "Index": -1,
+            "NameInSource": "idUser",
+            "Alias": "idUser",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "id_cuenta",
+            "Index": -1,
+            "NameInSource": "id_cuenta",
+            "Alias": "id_cuenta",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from cuenta"
+      },
+      "2": {
+        "Ident": "StiMySqlSource",
+        "Name": "detallecomprobante",
+        "Alias": "detallecomprobante",
+        "Columns": {
+          "0": {
+            "Name": "Glosa",
+            "Index": -1,
+            "NameInSource": "Glosa",
+            "Alias": "Glosa",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "MontoDebe",
+            "Index": -1,
+            "NameInSource": "MontoDebe",
+            "Alias": "MontoDebe",
+            "Type": "System.Decimal"
+          },
+          "2": {
+            "Name": "MontoDebeAlt",
+            "Index": -1,
+            "NameInSource": "MontoDebeAlt",
+            "Alias": "MontoDebeAlt",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "MontoHaber",
+            "Index": -1,
+            "NameInSource": "MontoHaber",
+            "Alias": "MontoHaber",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "MontoHaberAlt",
+            "Index": -1,
+            "NameInSource": "MontoHaberAlt",
+            "Alias": "MontoHaberAlt",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "Numero",
+            "Index": -1,
+            "NameInSource": "Numero",
+            "Alias": "Numero",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "PkComprobante",
+            "Index": -1,
+            "NameInSource": "PkComprobante",
+            "Alias": "PkComprobante",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "PkCuenta",
+            "Index": -1,
+            "NameInSource": "PkCuenta",
+            "Alias": "PkCuenta",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "10": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from detallecomprobante"
+      },
+      "3": {
+        "Ident": "StiMySqlSource",
+        "Name": "empresa",
+        "Alias": "empresa",
+        "Columns": {
+          "0": {
+            "Name": "Correo",
+            "Index": -1,
+            "NameInSource": "Correo",
+            "Alias": "Correo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "Direccion",
+            "Index": -1,
+            "NameInSource": "Direccion",
+            "Alias": "Direccion",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "Nit",
+            "Index": -1,
+            "NameInSource": "Nit",
+            "Alias": "Nit",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "Niveles",
+            "Index": -1,
+            "NameInSource": "Niveles",
+            "Alias": "Niveles",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "Razon_social",
+            "Index": -1,
+            "NameInSource": "Razon_social",
+            "Alias": "Razon_social",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "Sigla",
+            "Index": -1,
+            "NameInSource": "Sigla",
+            "Alias": "Sigla",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "Telefono",
+            "Index": -1,
+            "NameInSource": "Telefono",
+            "Alias": "Telefono",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from empresa"
+      },
+      "4": {
+        "Ident": "StiMySqlSource",
+        "Name": "monedaempresa",
+        "Alias": "monedaempresa",
+        "Columns": {
+          "0": {
+            "Name": "Activo",
+            "Index": -1,
+            "NameInSource": "Activo",
+            "Alias": "Activo",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "Alternativa",
+            "Index": -1,
+            "NameInSource": "Alternativa",
+            "Alias": "Alternativa",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "Cambio",
+            "Index": -1,
+            "NameInSource": "Cambio",
+            "Alias": "Cambio",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FechaRegistro",
+            "Index": -1,
+            "NameInSource": "FechaRegistro",
+            "Alias": "FechaRegistro",
+            "Type": "System.DateTime"
+          },
+          "4": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "Principal",
+            "Index": -1,
+            "NameInSource": "Principal",
+            "Alias": "Principal",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from monedaempresa"
+      },
+      "5": {
+        "Ident": "StiMySqlSource",
+        "Name": "concepto",
+        "Alias": "concepto",
+        "Columns": {
+          "0": {
+            "Name": "Nombres",
+            "Index": -1,
+            "NameInSource": "Nombres",
+            "Alias": "Nombres",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "Tipo",
+            "Index": -1,
+            "NameInSource": "Tipo",
+            "Alias": "Tipo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from concepto"
+      },
+      "6": {
+        "Ident": "StiMySqlSource",
+        "Name": "gestion",
+        "Alias": "gestion",
+        "Columns": {
+          "0": {
+            "Name": "Estado",
+            "Index": -1,
+            "NameInSource": "Estado",
+            "Alias": "Estado",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "FechaFin",
+            "Index": -1,
+            "NameInSource": "FechaFin",
+            "Alias": "FechaFin",
+            "Type": "System.DateTime"
+          },
+          "2": {
+            "Name": "FechaInicio",
+            "Index": -1,
+            "NameInSource": "FechaInicio",
+            "Alias": "FechaInicio",
+            "Type": "System.DateTime"
+          },
+          "3": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "7": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from gestion"
+      },
+      "7": {
+        "Ident": "StiMySqlSource",
+        "Name": "moneda",
+        "Alias": "moneda",
+        "Columns": {
+          "0": {
+            "Name": "Abreviatura",
+            "Index": -1,
+            "NameInSource": "Abreviatura",
+            "Alias": "Abreviatura",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "Descripcion",
+            "Index": -1,
+            "NameInSource": "Descripcion",
+            "Alias": "Descripcion",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "user_id",
+            "Index": -1,
+            "NameInSource": "user_id",
+            "Alias": "user_id",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from moneda"
+      },
+      "8": {
+        "Ident": "StiMySqlSource",
+        "Name": "periodo",
+        "Alias": "periodo",
+        "Columns": {
+          "0": {
+            "Name": "Estado",
+            "Index": -1,
+            "NameInSource": "Estado",
+            "Alias": "Estado",
+            "Type": "System.Decimal"
+          },
+          "1": {
+            "Name": "FechaFin",
+            "Index": -1,
+            "NameInSource": "FechaFin",
+            "Alias": "FechaFin",
+            "Type": "System.DateTime"
+          },
+          "2": {
+            "Name": "FechaInicio",
+            "Index": -1,
+            "NameInSource": "FechaInicio",
+            "Alias": "FechaInicio",
+            "Type": "System.DateTime"
+          },
+          "3": {
+            "Name": "Nombre",
+            "Index": -1,
+            "NameInSource": "Nombre",
+            "Alias": "Nombre",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "PkEmpresa",
+            "Index": -1,
+            "NameInSource": "PkEmpresa",
+            "Alias": "PkEmpresa",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "PkGestion",
+            "Index": -1,
+            "NameInSource": "PkGestion",
+            "Alias": "PkGestion",
+            "Type": "System.Decimal"
+          },
+          "6": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from periodo"
+      },
+      "9": {
+        "Ident": "StiMySqlSource",
+        "Name": "users",
+        "Alias": "users",
+        "Columns": {
+          "0": {
+            "Name": "created_at",
+            "Index": -1,
+            "NameInSource": "created_at",
+            "Alias": "created_at",
+            "Type": "System.DateTime"
+          },
+          "1": {
+            "Name": "email",
+            "Index": -1,
+            "NameInSource": "email",
+            "Alias": "email",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "id",
+            "Index": -1,
+            "NameInSource": "id",
+            "Alias": "id",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "name",
+            "Index": -1,
+            "NameInSource": "name",
+            "Alias": "name",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "password",
+            "Index": -1,
+            "NameInSource": "password",
+            "Alias": "password",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "remember_token",
+            "Index": -1,
+            "NameInSource": "remember_token",
+            "Alias": "remember_token",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "updated_at",
+            "Index": -1,
+            "NameInSource": "updated_at",
+            "Alias": "updated_at",
+            "Type": "System.DateTime"
+          },
+          "7": {
+            "Name": "username",
+            "Index": -1,
+            "NameInSource": "username",
+            "Alias": "username",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Conexión",
+        "SqlCommand": "select * from users where id={usuario}"
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiMySqlDatabase",
+        "Name": "Conexión",
+        "Alias": "Conexión",
+        "ConnectionStringEncrypted": "41zNa8ZKMd1sE9XASJykP4twm2DGS1mkyxX9jek99XvfIGmvTUrzieJL+fHDBDtPi3BPieYI+w=="
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "4d0c29b214009271e19004462453946d",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiPageFooterBand",
+          "Name": "PageFooterBand1",
+          "ClientRectangle": "0,27.1,19,0.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text16",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16.4,0.1,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{PageNofMThrough}"
+              },
+              "HorAlignment": "Right",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0"
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiReportTitleBand",
+          "Name": "ReportTitleBand1",
+          "ClientRectangle": "0,0.4,19,3.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "4.4,0.6,9.6,2.2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "REPORTE DE LIBRO DIARIO\r\nEMPRESA:{comprobante.Razon_social}\r\nGESTION:{comprobante.gestion_nombre}\r\nPERIODO:{comprobante.nombre_periodo}"
+              },
+              "HorAlignment": "Center",
+              "Font": ";12;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "15.4,2.8,3.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Fecha:{Time}\r\nUsuario:{users.name}"
+              },
+              "HorAlignment": "Right",
+              "Border": ";;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text21",
+              "Guid": "db36e0cdc1cc3fd7fc6d8bfc5fc766d2",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,-0.4,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiHeaderBand",
+          "Name": "HeaderBand1",
+          "ClientRectangle": "0,5,19,0.4",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,2.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Fecha"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "2.8,0,2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Codigo"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "4.8,0,9.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Cuenta"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Monto Debe"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16.8,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "Monto Haber"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          }
+        },
+        "3": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand1",
+          "ClientRectangle": "0,6.2,19,0",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,2.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {comprobante.fecha}"
+              },
+              "HorAlignment": "Center",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "TextFormat": {
+                "Ident": "StiDateFormatService"
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text17",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "2.8,0,2.6,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text18",
+              "Guid": "8e3ef7706ff0790b2ee4f5aececda165",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "4.8,0,9.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {comprobante.Glosa}"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text19",
+              "Guid": "2c19e6ae2528da49ec3a5b3905862035",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text20",
+              "Guid": "0252b24e0bffd23fed06e1e7ab8fe5ce",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16.8,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "Condition": {
+            "Value": "{comprobante.id_comprobante}"
+          }
+        },
+        "4": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand1",
+          "ClientRectangle": "0,7,19,0.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "2.8,0,2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {comprobante.Codigo}"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "4.8,0,9.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "    {comprobante.Nombre}"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "HideZeros": true,
+              "Text": {
+                "Value": "{comprobante.MontoDebe}"
+              },
+              "HorAlignment": "Right",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16.8,0,2.2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "HideZeros": true,
+              "Text": {
+                "Value": "{comprobante.MontoHaber}"
+              },
+              "HorAlignment": "Right",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text22",
+              "Guid": "659926f7ceeb3a483657322efe490d1a",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "0,0,2.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "comprobante",
+          "Sort": {
+            "0": "ASC",
+            "1": "fecha"
+          }
+        },
+        "5": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand1",
+          "ClientRectangle": "0,8.2,19,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:"
+        },
+        "6": {
+          "Ident": "StiFooterBand",
+          "Name": "FooterBand1",
+          "ClientRectangle": "0,9,19,0.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "13,0,1.6,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "TOTAL:"
+              },
+              "HorAlignment": "Center",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "14.6,0,2.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(DataBand1,comprobante.MontoDebe)}"
+              },
+              "HorAlignment": "Right",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text15",
+              "MinSize": "0,0",
+              "MaxSize": "0,0",
+              "ClientRectangle": "16.8,0,2.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(DataBand1,comprobante.MontoHaber)}"
+              },
+              "HorAlignment": "Right",
+              "Font": ";;Bold;",
+              "Border": "All;;;;;;;solid:0,0,0",
+              "Brush": "solid:",
+              "TextBrush": "solid:0,0,0",
+              "Type": "Expression"
+            }
+          },
+          "PrintIfEmpty": true
+        }
+      },
+      "PageWidth": 21.0,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    }
+  }
+}
